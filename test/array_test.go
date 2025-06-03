@@ -29,7 +29,7 @@ func InitialNonStrictlyIncreasingArray(maxLen, interval int) []int {
 }
 
 func TestRemoveDuplicates(t *testing.T) {
-	nums := InitialNonStrictlyIncreasingArray(10, 3)
+	nums := InitialNonStrictlyIncreasingArray(100, 3)
 	fmt.Println(nums)
 	assert.Equal(t, 3, array_study.RemoveDuplicates(nums))
 }

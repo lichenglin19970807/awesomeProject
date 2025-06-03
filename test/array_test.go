@@ -2,8 +2,10 @@ package test
 
 import (
 	"awesomeProject/array"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"math/rand"
+	"sort"
 	"testing"
 )
 
@@ -15,6 +17,21 @@ func InitialIncrementalArray(maxLen, interval int) []int {
 		offset += interval
 	}
 	return nums
+}
+
+func InitialNonStrictlyIncreasingArray(maxLen, interval int) []int {
+	nums := make([]int, maxLen)
+	for i := 0; i < maxLen; i++ {
+		nums[i] = rand.Intn(interval)
+	}
+	sort.Ints(nums)
+	return nums
+}
+
+func TestRemoveDuplicates(t *testing.T) {
+	nums := InitialNonStrictlyIncreasingArray(10, 3)
+	fmt.Println(nums)
+	assert.Equal(t, 3, array_study.RemoveDuplicates(nums))
 }
 
 func Test_BinarySearch(t *testing.T) {

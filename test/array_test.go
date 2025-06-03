@@ -28,6 +28,22 @@ func InitialNonStrictlyIncreasingArray(maxLen, interval int) []int {
 	return nums
 }
 
+func TestSortedSquares(t *testing.T) {
+	nums := []int{-4, -1, 0, 3, 10}
+	output := []int{0, 1, 9, 16, 100}
+	assert.Equal(t, output, array_study.SortedSquares(nums))
+
+	numsB := []int{-7, -3, 2, 3, 11}
+	outputB := []int{4, 9, 9, 49, 121}
+	assert.Equal(t, outputB, array_study.SortedSquares(numsB))
+}
+
+func TestRemoveElement(t *testing.T) {
+	nums := InitialNonStrictlyIncreasingArray(10, 5)
+	fmt.Println(nums)
+	fmt.Println(array_study.RemoveElement(nums, 2))
+}
+
 func TestRemoveDuplicates(t *testing.T) {
 	nums := InitialNonStrictlyIncreasingArray(100, 3)
 	fmt.Println(nums)

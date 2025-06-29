@@ -2,15 +2,14 @@ package test
 
 import (
 	"awesomeProject/mySort"
+	"awesomeProject/validator"
 	"fmt"
-	"math/rand"
 	"sort"
 	"testing"
-	"time"
 )
 
 func TestSanShaSort(t *testing.T) {
-	a := NewRandomArray(10, 1000)
+	a := validator.NewRandomArray(10, 1000)
 	fmt.Println(a)
 	// 选择排序
 	fmt.Println("选择排序")
@@ -38,16 +37,6 @@ func TestSanShaSort(t *testing.T) {
 	a5 := DeepCopyArray(a)
 	mySort.InsertSort(a5)
 	fmt.Println(CheckArraySort(a5))
-}
-
-func NewRandomArray(length, max int) []int {
-	src := rand.NewSource(time.Now().UnixNano())
-	r := rand.New(src)
-	res := make([]int, length)
-	for i := 0; i < length; i++ {
-		res[i] = r.Intn(max)
-	}
-	return res
 }
 
 func DeepCopyArray(s []int) []int {

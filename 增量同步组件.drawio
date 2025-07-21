@@ -1,0 +1,46 @@
+<mxfile>
+  <diagram name="流程图" id="流程ID">
+    <mxGraphModel dx="1026" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- 步骤节点 -->
+        <mxCell id="step1" value="<b>入参</b><br>filename + position<br>（存量任务启动位点）" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="40" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="step2" value="<b>存量任务完成后启动增量任务</b>" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="step3" value="<b>过滤entry/header</b><br>fileName ≥ 入参fileName<br>（若相等，判断position > 入参position）" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="160" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="note1" value="存量任务只同步到当前IDmax数据" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#f8f8f8;dashed=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="120" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="step4" value="<b>处理数据库语句</b><br>insert / update / delete" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="step5" value="<b>确定业务字段</b><br>• 分表键<br>• 分表键哈希函数<br>• 目标库" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="160" height="90" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="step6" value="<b>执行</b><br>1. 替换表名为目标分表<br>2. 在目标库执行语句" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="100" y="460" width="160" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- 连接箭头 -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1" source="step1" target="step2"/>
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1" source="step2" target="step3"/>
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1" source="step3" target="step4"/>
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1" source="step4" target="step5"/>
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1" source="step5" target="step6"/>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
